@@ -1,11 +1,11 @@
-package test.scala
+package com.knoldus.deltalake
 
-import com.knoldus.kafka.InputSource
-import com.knoldus.utils.Constants
+import com.knoldus.constants.Constants
+import com.knoldus.kafka.MessageReader
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.scalatest.{BeforeAndAfterAll, FlatSpec}
 
-class InputSourceSpec extends FlatSpec with BeforeAndAfterAll with InputSource {
+class MessageReaderSpec extends FlatSpec with BeforeAndAfterAll with MessageReader {
 
   override val sparkSession: SparkSession = SparkSession
     .builder
@@ -14,18 +14,12 @@ class InputSourceSpec extends FlatSpec with BeforeAndAfterAll with InputSource {
     .getOrCreate()
 
   override def afterAll(): Unit = {
-
     sparkSession.close()
     sparkSession.stop()
-
   }
 
   "takeInput method" should "give a dataFrame which should not be null" in {
-
     val actualResult: DataFrame = takeInput()
-
     assert(actualResult != null)
-
   }
-
 }

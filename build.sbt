@@ -3,19 +3,17 @@ import Dependencies._
 //mainClass in (Compile,run) := Some("com.knoldus.structuredstreaming.StructuredStreamingJob")
 
 lazy val commonSettings = Seq(
-//  name := "xl8r-delta-lake",
   organization := "com.knoldus",
   scalaVersion := "2.12.8",
-  version :="1.0.0"
-
+  version := "1.0.0"
 )
 
 lazy val root = project
   .in(file("."))
   .settings(
     commonSettings,
-    name :="acclerator-delta-lake"
-  ).aggregate(sparkDeltaLake,examples)
+    name := "acclerator-delta-lake"
+  ).aggregate(sparkDeltaLake, examples)
 
 lazy val sparkDeltaLake = project
   .in(file("./modules/spark-delta-lake"))

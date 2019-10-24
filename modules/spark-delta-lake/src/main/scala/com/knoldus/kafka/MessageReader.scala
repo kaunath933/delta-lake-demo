@@ -1,14 +1,12 @@
 package com.knoldus.kafka
 
-import com.knoldus.utils.Constants
+import com.knoldus.constants.Constants
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
- * InputFromat is a Trait which contains the spark session and a method to read from Kafka.
+ * MessageReader a Trait which contains the spark session and a method to read from Kafka.
  */
-trait InputSource {
-
-  //val sparkSession: SparkSession
+trait MessageReader {
 
   /**
    * takeInput() will provide us the DataFrame which is being read from Kafka.
@@ -30,6 +28,6 @@ trait InputSource {
 }
 
 /**
- * InputFormat is a Singleton object to access the methods from InputAdapterService Trait.
+ * MessageReader is a Singleton object to access the methods from InputAdapterService Trait.
  */
-object InputSource extends InputSource
+object MessageReader extends MessageReader

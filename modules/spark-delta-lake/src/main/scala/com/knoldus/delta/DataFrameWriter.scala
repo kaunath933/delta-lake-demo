@@ -1,9 +1,10 @@
 package com.knoldus.delta
 
-import com.knoldus.utils.Constants
+import com.knoldus.constants.Constants
 import org.apache.spark.sql.DataFrame
 
-trait OutputSource {
+trait DataFrameWriter {
+
   /**
    * writeToDelta() writes the data to delta lake
    * the format of the data is in parquet file format
@@ -19,8 +20,7 @@ trait OutputSource {
       .option(Constants.CheckPointLocation, checkPointPath)
       .start(filePath)
       .awaitTermination()
-
   }
 }
 
-object OutputSource extends OutputSource
+object DataFrameWriter extends DataFrameWriter

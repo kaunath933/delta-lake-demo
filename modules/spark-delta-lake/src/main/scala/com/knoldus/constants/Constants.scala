@@ -1,4 +1,4 @@
-package com.knoldus.utils
+package com.knoldus.constants
 
 import com.typesafe.config.{Config, ConfigFactory}
 
@@ -8,7 +8,7 @@ import com.typesafe.config.{Config, ConfigFactory}
  */
 object Constants {
 
-  val config: Config =ConfigFactory.load()
+  val config: Config = ConfigFactory.load()
   val SparkAppName: String = config.getString("spark.app-name")
   val SparkMaster: String = config.getString("spark.master-name")
   val SparkInputSource: String = config.getString("spark.input-source")
