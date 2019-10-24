@@ -1,7 +1,5 @@
 import Dependencies._
 
-//mainClass in (Compile,run) := Some("com.knoldus.structuredstreaming.StructuredStreamingJob")
-
 lazy val commonSettings = Seq(
   organization := "com.knoldus",
   scalaVersion := "2.12.8",
@@ -16,7 +14,7 @@ lazy val root = project
   ).aggregate(sparkDeltaLake, examples)
 
 lazy val sparkDeltaLake = project
-  .in(file("./modules/spark-delta-lake"))
+  .in(file("./spark-delta-lake"))
   .settings(
     commonSettings,
     name := "spark-delta-lake",
@@ -24,7 +22,7 @@ lazy val sparkDeltaLake = project
   )
 
 lazy val examples = project
-  .in(file("./modules/examples"))
+  .in(file("./examples"))
   .configs(IntegrationTest)
   .settings(
     name := "examples",
@@ -32,3 +30,4 @@ lazy val examples = project
     libraryDependencies ++= testingDependencies
   )
   .dependsOn(sparkDeltaLake)
+
