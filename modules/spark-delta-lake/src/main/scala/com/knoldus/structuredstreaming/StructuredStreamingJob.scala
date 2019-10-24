@@ -8,7 +8,7 @@ import org.apache.spark.sql.{DataFrame, Dataset}
  * StructuredStreamingJob is the main working unit of project.
  * Which gets a dataFrame from InputSource and persists it on OutputSource .
  */
-trait StructuredStreamingJob {
+trait StructuredStreamingJob  extends InputSource {
 
   def main(args: Array[String]): Unit = {
 
@@ -17,8 +17,6 @@ trait StructuredStreamingJob {
     import InputSource.sparkSession.implicits._
 
     val dataSet: Dataset[String] = dataFrame.selectExpr(Constants.CastToStringValue).as[String]
-
-    run(dataSet)
 
   }
 

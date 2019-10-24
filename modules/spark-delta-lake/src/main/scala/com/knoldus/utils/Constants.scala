@@ -23,7 +23,7 @@ object Constants {
   val SelectColumn: String = "value"
   val ParquetFilePath: String = config.getString("spark.delta.file-path")
   val CheckPointLocation: String = "checkpointLocation"
-  val CheckPointPath: String = config.getString("spark.delta. checkpoint-path")
+  val CheckPointPath: String = config.getString("spark.delta.checkpoint-path")
   val FileFormat: String = "delta"
   val SaveMode: String = config.getString("spark.delta.save-mode")
 

@@ -1,19 +1,36 @@
-name := "xl8r-delta-lake"
+import Dependencies._
 
-version := "1.0.0"
+//mainClass in (Compile,run) := Some("com.knoldus.structuredstreaming.StructuredStreamingJob")
 
-scalaVersion := "2.12.8"
+lazy val commonSettings = Seq(
+//  name := "xl8r-delta-lake",
+  organization := "com.knoldus",
+  scalaVersion := "2.12.8",
+  version :="1.0.0"
 
-val sparkVersion: String = "2.4.4"
-
-val scalaTestVersion: String = "3.0.5"
-
-libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-sql-kafka-0-10" % sparkVersion,
-  "org.apache.spark" %% "spark-core" % sparkVersion,
-  "org.apache.spark" %% "spark-sql" % sparkVersion,
-  "org.apache.spark" %% "spark-streaming" % sparkVersion,
-  "io.delta" %% "delta-core" % "0.3.0",
-  "org.scalatest" %% "scalatest" % scalaTestVersion,
-  "com.typesafe" % "config" % "1.3.2",
 )
+
+lazy val root = project
+  .in(file("."))
+  .settings(
+    commonSettings,
+    name :="acclerator-delta-lake"
+  ).aggregate(sparkDeltaLake,examples)
+
+lazy val sparkDeltaLake = project
+  .in(file("./modules/spark-delta-lake"))
+  .settings(
+    commonSettings,
+    name := "spark-delta-lake",
+    libraryDependencies ++= sparkDeltaLakeDependencies
+  )
+
+lazy val examples = project
+  .in(file("./modules/examples"))
+  .configs(IntegrationTest)
+  .settings(
+    name := "examples",
+    commonSettings,
+    libraryDependencies ++= testingDependencies
+  )
+  .dependsOn(sparkDeltaLake)

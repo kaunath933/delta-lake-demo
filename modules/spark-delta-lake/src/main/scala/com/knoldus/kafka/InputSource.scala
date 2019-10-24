@@ -8,7 +8,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
  */
 trait InputSource {
 
-  val sparkSession: SparkSession
+  //val sparkSession: SparkSession
 
   /**
    * takeInput() will provide us the DataFrame which is being read from Kafka.
@@ -22,17 +22,14 @@ trait InputSource {
     .option(Constants.SparkKafkaTopicKey, Constants.SparkKafkaTopicValue)
     .load()
 
-}
-
-/**
- * InputFormat is a Singleton object to access the methods from InputAdapterService Trait.
- */
-object InputSource extends InputSource {
-
   val sparkSession: SparkSession = SparkSession
     .builder
     .appName(Constants.SparkAppName)
     .master(Constants.SparkMaster)
     .getOrCreate()
-
 }
+
+/**
+ * InputFormat is a Singleton object to access the methods from InputAdapterService Trait.
+ */
+object InputSource extends InputSource

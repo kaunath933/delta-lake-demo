@@ -7,7 +7,7 @@ import org.scalatest.{BeforeAndAfterAll, FlatSpec}
 
 class InputSourceSpec extends FlatSpec with BeforeAndAfterAll with InputSource {
 
-  val sparkSession: SparkSession = SparkSession
+  override val sparkSession: SparkSession = SparkSession
     .builder
     .appName(Constants.SparkAppName)
     .master(Constants.SparkMaster)
