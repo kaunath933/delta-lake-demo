@@ -1,4 +1,4 @@
-# xl8r-delta-lake
+# delta-lake
   
 It consists of methods which are mostly used while a job is related to apache spark and write into delta lake.  
   
@@ -16,11 +16,11 @@ To run the SDK you will need  **Java 1.8+, Scala 2.12.8, SBT 1.2.8**.
 The way to use this project is to clone it from github and build it using sbt.  
   
 ## How to use   
-We need to extend the `StructuredStreamingJob` trait and override the run method and write the job operations there.  
+We need to extend the `StreamingDriver` trait and override the run method and write the job operations there.  
 
   
 ```scala  
-object ExampleDeltalake extends StructuredStreamingJob {
+object ExampleDeltalake extends StreamingDriver {
 
   import InputSource.sparkSession.implicits._
 
@@ -49,8 +49,6 @@ The available concrete methods are -
  def takeInput(): DataFrame
  
 def writeToDelta(outputDataFrame: DataFrame, filePath: String, checkPointPath: String)
-
-extractDfReadFromMultipleTopic(dataframe: DataFrame, topicName: String): DataFrame 
 
 ```  
 ## How to Run 

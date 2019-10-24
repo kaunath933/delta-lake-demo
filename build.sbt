@@ -30,4 +30,3 @@ lazy val examples = project
     libraryDependencies ++= testingDependencies
   )
   .dependsOn(sparkDeltaLake)
-

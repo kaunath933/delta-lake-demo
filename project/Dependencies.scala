@@ -1,7 +1,5 @@
 import sbt._
 
-import scala.collection.immutable
-
 object Dependencies {
 
   val scala: String = "2.12.8"
