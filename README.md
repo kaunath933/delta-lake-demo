@@ -52,7 +52,8 @@ def writeToDelta(outputDataFrame: DataFrame, filePath: String, checkPointPath: S
 
 ```  
 ## How to Run 
-While running, we have to pass all the arguments written in application.conf file ```src/main/resources/application.conf```, we can pass it by writing a shell script and run the script before running the applicstion.  
+While running, we have to pass all the arguments written in Constants.scala file 
+we can pass it by writing a shell script and run the script before running the applicstion.  
   
 ## Example 
 
