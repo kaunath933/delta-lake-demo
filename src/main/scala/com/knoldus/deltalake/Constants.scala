@@ -1,4 +1,4 @@
-package com.knoldus.constants
+package com.knoldus.deltalake
 
 /**
  * A singleton object named Constants where all constants are placed
@@ -18,9 +18,9 @@ object Constants {
   val ExistingNameOfColumn: String = "count(1)"
   val NewNameOfColumn: String = "Count"
   val SelectColumn: String = "value"
-  val ParquetFilePath: String = "spark-delta-lake/src/main/resources/file"
+  val ParquetFilePath: String = "./deltafiles/files"
   val CheckPointLocation: String = "checkpointLocation"
-  val CheckPointPath: String = "spark-delta-lake/src/main/resources/checkpoint"
+  val CheckPointPath: String = "./deltafiles/checkpoints"
   val FileFormat: String = "delta"
   val SaveMode: String = "complete"
 

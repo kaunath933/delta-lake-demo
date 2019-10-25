@@ -1,6 +1,4 @@
-import com.knoldus.constants.Constants
-import com.knoldus.kafka.MessageReader
-import com.knoldus.structuredstreaming.StreamingDriver
+import com.knoldus.deltalake.{Constants, MessageReader, StreamingDriver}
 import org.apache.spark.sql.{DataFrame, Dataset}
 
 /**

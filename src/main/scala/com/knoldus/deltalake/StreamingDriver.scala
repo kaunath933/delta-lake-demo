@@ -1,8 +1,5 @@
-package com.knoldus.structuredstreaming
+package com.knoldus.deltalake
 
-import com.knoldus.constants.Constants
-import com.knoldus.delta.DataFrameWriter
-import com.knoldus.kafka.MessageReader
 import org.apache.spark.sql.{DataFrame, Dataset}
 
 /**

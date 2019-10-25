@@ -1,6 +1,5 @@
-package com.knoldus.kafka
+package com.knoldus.deltalake
 
-import com.knoldus.constants.Constants
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**

@@ -1,7 +1,5 @@
 package com.knoldus.deltalake
 
-import com.knoldus.constants.Constants
-import com.knoldus.kafka.MessageReader
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.scalatest.{BeforeAndAfterAll, FlatSpec}
 
