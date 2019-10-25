@@ -22,9 +22,9 @@ We need to extend the `StreamingDriver` trait and override the run method and wr
 ```scala  
 object ExampleDeltalake extends StreamingDriver {
 
-  import InputSource.sparkSession.implicits._
+ import InputSource.sparkSession.implicits._
 
-  override def run(dataSet: Dataset[String]) = {
+ override def run(dataSet: Dataset[String]) = {
 
     // your codes here
 
@@ -37,7 +37,7 @@ object ExampleDeltalake extends StreamingDriver {
 #### Abstract Methods  
 ```scala 
  
-  override def run(dataSet: Dataset[String]) : Unit
+override def run(dataSet: Dataset[String]) : Unit
 
 ```  
   
@@ -46,15 +46,13 @@ object ExampleDeltalake extends StreamingDriver {
 The available concrete methods are -   
   
 ```scala  
- def takeInput(): DataFrame
+def takeInput(): DataFrame
  
 def writeToDelta(outputDataFrame: DataFrame, filePath: String, checkPointPath: String)
 
 ```  
 ## How to Run 
-While running, we have to pass all the arguments written in Constants.scala file 
-we can pass it by writing a shell script and run the script before running the applicstion.  
-  
+At the time of running just give your implementation in the run method and use **sbt run** to run the application
 ## Example 
 
 ### Starting kafka
@@ -64,7 +62,8 @@ The steps are as follows-
 **2. Give the command to start the zookeeper server** ```bin/zookeeper-server-start.sh config/zookeeper.properties to start the zookeeper server```  
 **3. Then start the kafka server by typing the command** ```bin/kafka-server-start.sh config/server.properties```  
 **4. To start a kafka producer enter the command** ```./bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic1```  -here topic1 is the name of the kafka topic  
-**5. Now you can start to produce in the kafka topic**  
+**5. Now you can start to produce in the kafka topic** ```> hello 
+delta lake  ```  This will store the message hello world as a parquet format in the specified path 
    
 #### Writing to delta lake  :
 By calling ```writeToDelta``` function with the required parameters ```dataFrame: Dataframe```,```filepath:String```, ```checkpointPath:String```we can write the processed data into delta lake.  
